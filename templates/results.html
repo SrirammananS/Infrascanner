@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to your styles.css -->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5f3f3;">
+        <a class="navbar-brand" href="#">
+            <!-- <img src="{{ url_for('static', filename='Logo.jpg') }}" width="100" height="50" class="d-inline-block align-top" alt="Logo"> -->
+            <img src="https://brand.eviden.com/skin/layout/images/logo-login.svg" width="100" height="50" class="d-inline-block align-top" alt="Eviden">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button id="download-pdf" class="btn btn-primary scan-button">Download HTML</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid result-container">
+
+        <h2>Scan Results</h2>
+        <h4 id="urlElement">URL: {{ url }}</h4>
+
+        <ul class="nav nav-tabs mt-4" id="resultsTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" id="testssl-tab" data-toggle="tab" href="#testssl" role="tab"
+                    aria-controls="testssl" aria-selected="true">Testssl</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="sslscan-tab" data-toggle="tab" href="#sslscan" role="tab"
+                    aria-controls="sslscan" aria-selected="false">SSLScan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="nmap-tab" data-toggle="tab" href="#nmap" role="tab" aria-controls="nmap"
+                    aria-selected="false">Nmap</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4" id="resultsTabContent">
+            <div class="tab-pane fade in active" id="testssl" role="tabpanel" aria-labelledby="testssl-tab">
+                <!-- <div class="tab-pane fade ansi2html-content" id="testssl" role="tabpanel" aria-labelledby="testssl-tab"></div> -->
+                <div class="custom-styling">{{ testssl_result | safe}}</div>
+            </div>
+            <div class="tab-pane fade" id="sslscan" role="tabpanel" aria-labelledby="sslscan-tab">
+                <div class="custom-styling">{{ sslscan_result | safe}}</div>
+            </div>
+            <div class="tab-pane fade" id="nmap" role="tabpanel" aria-labelledby="nmap-tab">
+                <div class="custom-styling">{{ nmap_result | safe}}</div>
+            </div>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

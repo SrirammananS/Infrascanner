@@ -1,0 +1,67 @@
+.container-index {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.container-center {
+    padding-top: 100px;
+    text-align: center;
+}
+
+
+.scan-button {
+    background-color: #ff6d43; /* Orange */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.test-header {
+    font-weight: bold;
+    color: #ff6d43; /* Orange */
+    margin-top: 10px;
+}
+
+.dynamic-content {
+    display: inline;
+}
+
+.options-input {
+    width: 100%;
+}
+
+/* Override styles for ANSI to HTML conversion */
+.ansi2html-content {
+    background-color: white; /* Set a light background color */
+    color: black; /* Set a dark text color for better contrast */
+    font-family: monospace; /* Use a monospace font for better readability */
+    /* Add more custom styles as needed */
+}
+
+
+.result-container {
+    background-color: white; /* Set a light background color */
+    color: black; /* Set a dark text color for better contrast */
+
+}
+/* styles.css */
+.loading-spinner {
+    /* position: fixed;
+    width: 100%;
+    height: 100%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* transform: translate(-50%, -50%); */
+    display: none;
+    /* z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+   
+}
+
+

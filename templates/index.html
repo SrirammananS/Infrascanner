@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Security Scanner Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to your styles.css -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff6d43;">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='Logo.jpg') }}" width="100" height="50" class="d-inline-block align-top" alt="Eviden">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div class="container-fluid container-index">
+        
+        <div class="row justify-content-center">
+            
+            <div class="col-lg-6">
+                <h1 class="mb-4">Eviden Infra Scanner</h1>
+                <form method="POST" id="scanForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" id="url" name="url"
+                            placeholder="Enter URL">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="test-header">testssl URL:</label>
+                        <p id="testssl-url" class="dynamic-content"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="testssl_options" class="form-control options-input"
+                            name="testssl_options" placeholder="testssl options (optional)">
+
+                    </div>
+                    <div class="form-group">
+                        <label class="test-header">SSLScan domain:</label>
+                        <p id="sslscan-domain" class="dynamic-content"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control options-input" name="sslscan_options"
+                            id="sslscan_options"  placeholder="SSLScan options (optional)">
+                    </div>
+                    <div class="form-group">
+                        <label class="test-header">nmap:</label>
+                        <p id="nmap-domain" class="dynamic-content"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control options-input" name="nmap_options" id="nmap_options"
+                        placeholder="nmap options (optional) default = http-methods,http-enum,ssl-dh-params,http-slowloris,ssl-enum-ciphers,http-iis-short-name-brute">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary scan-button">Start Scan</button>
+                    </div>
+
+
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-grow text-warning" style="width: 6rem; height: 6rem;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Link to your script.js -->
+</body>
+
+</html>
